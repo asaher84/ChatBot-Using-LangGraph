@@ -5,10 +5,11 @@ from langchain_core.messages import BaseMessage
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.graph.message import add_messages
 import sqlite3
+import os 
 
 # *************************************************************************************************
 
-llm = ChatGroq(api_key=GROQ_API_KEY,
+llm = ChatGroq(api_key=os.getenv(GROQ_API_KEY),
                model_name='openai/gpt-oss-120b')  # type:ignore
 
 # meta-llama/llama-4-scout-17b-16e-instruct
@@ -59,5 +60,6 @@ def retrive_thread():
     for checkpoints in checkpointer.list(None):
         all_threads.add(checkpoints.config['configurable']['thread_id'])
     return list(all_threads)
+
 
 
