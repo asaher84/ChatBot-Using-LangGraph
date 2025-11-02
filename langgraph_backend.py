@@ -8,8 +8,8 @@ import sqlite3
 
 # *************************************************************************************************
 
-llm = ChatGroq(api_key="",
-               model_name='gemma2-9b-it')  # type:ignore
+llm = ChatGroq(api_key=GROQ_API_KEY,
+               model_name='openai/gpt-oss-120b')  # type:ignore
 
 # meta-llama/llama-4-scout-17b-16e-instruct
 
@@ -59,4 +59,5 @@ def retrive_thread():
     for checkpoints in checkpointer.list(None):
         all_threads.add(checkpoints.config['configurable']['thread_id'])
     return list(all_threads)
+
 
