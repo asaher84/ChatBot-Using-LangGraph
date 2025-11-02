@@ -1,1 +1,7 @@
+langgraph
+langchain
+langchain_groq
+typing
+langchain_core
+streamlit
 
